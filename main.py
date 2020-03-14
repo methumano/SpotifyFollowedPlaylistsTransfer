@@ -33,9 +33,9 @@ def get_playlists():
     """Gathers list of all playlist ids and respective owner ids from source account"""
     id_list = []
     scope_list = ['playlist-read-private', 'playlist-read-collaborative']
-    username = input('Please enter the username ID of the source account\n')
-    input('Please open a browser window and login to the source Spotify account.\n'
-          'Press enter to continue...')
+    username = input('\nPlease enter the username ID of the source account\n')
+    input('\nPlease open a browser window and login to the source Spotify account.\n'
+          'Press enter to continue...\n')
     for scope in scope_list:
         client = get_client(scope, username)
         results = client.current_user_playlists()
@@ -45,7 +45,8 @@ def get_playlists():
             playlist_id = [element.split("/playlist/", 1)[1] for element in a]
             b = list(item['owner']['external_urls'].values())
             owner_id = [element.split("/user/", 1)[1] for element in b]
-            combined = playlist_id + owner_id
+            playlist_name = [item['name']]
+            combined = playlist_id + owner_id + playlist_name
             id_list.append(combined)
     return id_list
 
@@ -53,8 +54,8 @@ def get_playlists():
 def add_playlists(id_list):
     """Adds playlists from list into target account"""
     scope = 'playlist-modify-public'
-    username = input('Please enter the username ID of the target account\n')
-    input('Now log out of the source Spotify account and login to the target Spotify account.\n'
+    username = input('\nPlease enter the username ID of the target account\n')
+    input('\nNow log out of the source Spotify account and login to the target Spotify account.\n'
           'Press enter to continue...')
     client = get_client(scope, username)
     count = 0
@@ -63,8 +64,9 @@ def add_playlists(id_list):
         owner_id = item[1]
         client.user_playlist_follow_playlist(
             playlist_id=playlist_id, playlist_owner_id=owner_id)
+        print('Adding playlist: ', item[2])
         count += 1
-    print('A total of ', str(count),
+    print('\nA total of ', str(count),
           ' playlists have been transferred successfully!')
 
 

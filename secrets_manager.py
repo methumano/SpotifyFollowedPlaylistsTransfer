@@ -9,4 +9,4 @@ class secrets_manager:
 
     @property
     def redirect_uri(self):
-        return '<REPLACE_WITH_REDIRECT_URI'
+        return '<REPLACE_WITH_REDIRECT_URI>'

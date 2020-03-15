@@ -66,8 +66,8 @@ def add_playlists(id_list):
             playlist_id=playlist_id, playlist_owner_id=owner_id)
         print('Adding playlist: ', item[2])
         count += 1
-    print('\nA total of ', str(count),
-          ' playlists have been transferred successfully!')
+    print('\nA total of', str(count),
+          'playlists have been transferred successfully!')
 
 
 if __name__ == "__main__":

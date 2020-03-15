@@ -1,5 +1,7 @@
 # SpotifyFollowedPlaylistsTransfer
-Move across playlists that you follow from one Spotify account to another. There are many applications such as SpotMyBackup which copy playlists from one account to another. This is great for playlists that are created by you, but what about playlists that you follow? That is where this script comes to play!
+Move across playlists that you follow from one Spotify account to another.   
+There are many applications such as SpotMyBackup that allow you to import/export songs within playlists. This is great for playlists that are created by you, but what about playlists that you would like to follow rather than recreate?   
+That is where this script comes to play! This script will gather all followed playlists from one account, and then follow those playlists in another acccount.
 
 ## Prerequisites:
 1. Login to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/login) and create a new application. You should then be able to view the Client ID and Client Secret in the top left corner of the webpage. In order to create a new Redirect URI, click edit settings in the top right corner in the dashboard and add a new Redirect URI *`e.g. http://localhost:0000/callback`*. Add these to values to the respective functions in the `secrets_manager.py` file.
